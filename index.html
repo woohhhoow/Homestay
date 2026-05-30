@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>栖云隐舍 | 高级民宿运营与展示</title>
+    <meta
+      name="description"
+      content="栖云隐舍是一个面向精品度假与高效运营的高级民宿品牌官网，展示空间、房型、入住流程、在地体验与运营管理能力。"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#home" aria-label="返回首页">
+        <span class="brand-mark">QY</span>
+        <span>栖云隐舍</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false" data-nav-toggle>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" data-nav>
+        <a href="#spaces">空间</a>
+        <a href="#rooms">房型</a>
+        <a href="#operations">运营</a>
+        <a href="#journey">入住</a>
+        <a href="#local">体验</a>
+        <a href="#contact">预订</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <picture>
+          <img src="assets/images/hero-retreat.svg" alt="山居民宿庭院与室内灯光" class="hero-image" />
+        </picture>
+        <div class="hero-overlay"></div>
+        <div class="hero-content reveal">
+          <p class="eyebrow">Boutique Homestay Operations</p>
+          <h1>把安静的度假体验，经营成可持续的品牌资产。</h1>
+          <p class="hero-copy">
+            栖云隐舍以高级民宿空间为载体，融合房态、服务、数据与在地体验管理，为住客提供克制而丰盛的停留。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#rooms">查看房型</a>
+            <a class="button secondary" href="#operations">了解运营系统</a>
+          </div>
+        </div>
+        <div class="hero-panel reveal">
+          <span>入住满意度</span>
+          <strong>98.6%</strong>
+          <small>近 12 个月真实运营口径</small>
+        </div>
+      </section>
+
+      <section class="section intro">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Brand Position</p>
+          <h2>安静、精确、有温度的民宿经营。</h2>
+        </div>
+        <div class="intro-grid">
+          <article class="metric-card reveal">
+            <strong>12</strong>
+            <span>套精品客房</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong>4.9</strong>
+            <span>平台综合评分</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong>36h</strong>
+            <span>深度清洁周期</span>
+          </article>
+          <article class="metric-card reveal">
+            <strong>82%</strong>
+            <span>淡季平均入住率</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section" id="spaces">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Spaces</p>
+          <h2>民宿空间展示</h2>
+          <p>
+            以木、石、棉麻与自然光构成空间底色，减少装饰噪音，让庭院、山景与居住本身成为主角。
+          </p>
+        </div>
+        <div class="space-gallery">
+          <figure class="feature-image reveal">
+            <img src="assets/images/courtyard-suite.svg" alt="带庭院的高级民宿客房" />
+            <figcaption>庭院套房 · 私享泡池 · 晨间茶席</figcaption>
+          </figure>
+          <div class="stacked-images">
+            <figure class="reveal">
+              <img src="assets/images/lounge.svg" alt="民宿公共会客厅" />
+              <figcaption>公共会客厅</figcaption>
+            </figure>
+            <figure class="reveal">
+              <img src="assets/images/dining.svg" alt="民宿餐厅与早餐台" />
+              <figcaption>早餐与晚间小食</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section rooms-section" id="rooms">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Rooms</p>
+          <h2>房型卡片</h2>
+          <p>按入住人数、预算与停留方式筛选，快速找到适合的空间。</p>
+        </div>
+
+        <div class="filter-bar reveal" aria-label="房型筛选">
+          <button class="filter-button active" type="button" data-filter="all">全部</button>
+          <button class="filter-button" type="button" data-filter="couple">双人</button>
+          <button class="filter-button" type="button" data-filter="family">家庭</button>
+          <button class="filter-button" type="button" data-filter="longstay">长住</button>
+        </div>
+
+        <div class="room-grid">
+          <article class="room-card reveal" data-category="couple">
+            <img src="assets/images/room-mountain.svg" alt="山景大床房" />
+            <div class="room-card-body">
+              <p class="room-label">双人优选</p>
+              <h3>山景大床房</h3>
+              <p>落地窗、独立浴缸、晚安香氛，适合短途度假与纪念日入住。</p>
+              <div class="room-meta">
+                <span>42㎡</span>
+                <span>2 人</span>
+                <span>¥880 起</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card reveal" data-category="family">
+            <img src="assets/images/room-family.svg" alt="家庭复式套房" />
+            <div class="room-card-body">
+              <p class="room-label">家庭套房</p>
+              <h3>庭院复式套房</h3>
+              <p>上下层卧区、儿童阅读角、院落餐桌，兼顾亲密感与私密性。</p>
+              <div class="room-meta">
+                <span>78㎡</span>
+                <span>4 人</span>
+                <span>¥1,480 起</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="room-card reveal" data-category="longstay">
+            <img src="assets/images/room-studio.svg" alt="带书桌的长住套房" />
+            <div class="room-card-body">
+              <p class="room-label">长住友好</p>
+              <h3>云台书房套间</h3>
+              <p>独立书桌、小型茶水区、洗烘服务，适合旅居办公与疗愈停留。</p>
+              <div class="room-meta">
+                <span>56㎡</span>
+                <span>2 人</span>
+                <span>¥1,080 起</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section operations-section" id="operations">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Operations</p>
+          <h2>运营管理系统展示</h2>
+          <p>前台体验保持轻盈，后台管理保持精确。房态、清洁、库存、评价与收益数据统一沉淀。</p>
+        </div>
+        <div class="dashboard reveal">
+          <div class="dashboard-sidebar">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <div class="dashboard-main">
+            <div class="dashboard-top">
+              <div>
+                <span>今日运营概览</span>
+                <strong>入住 9 / 12</strong>
+              </div>
+              <button type="button">同步房态</button>
+            </div>
+            <div class="dashboard-grid">
+              <article>
+                <span>待清洁</span>
+                <strong>3 间</strong>
+              </article>
+              <article>
+                <span>今日抵达</span>
+                <strong>6 组</strong>
+              </article>
+              <article>
+                <span>平均房价</span>
+                <strong>¥1,126</strong>
+              </article>
+              <article>
+                <span>评价待回访</span>
+                <strong>2 条</strong>
+              </article>
+            </div>
+            <div class="timeline">
+              <span style="--width: 76%">房态同步</span>
+              <span style="--width: 64%">布草库存</span>
+              <span style="--width: 88%">服务响应</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section process-section" id="journey">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Journey</p>
+          <h2>入住流程</h2>
+        </div>
+        <div class="process-grid">
+          <article class="process-card reveal">
+            <span>01</span>
+            <h3>预订确认</h3>
+            <p>自动发送房型、路线、停车与抵达时间确认，减少反复沟通。</p>
+          </article>
+          <article class="process-card reveal">
+            <span>02</span>
+            <h3>抵达接待</h3>
+            <p>专人完成欢迎茶、入住核验、行李协助与空间介绍。</p>
+          </article>
+          <article class="process-card reveal">
+            <span>03</span>
+            <h3>在住服务</h3>
+            <p>早餐、清洁、体验预约与突发需求进入统一服务队列。</p>
+          </article>
+          <article class="process-card reveal">
+            <span>04</span>
+            <h3>离店回访</h3>
+            <p>沉淀偏好、评价与复购线索，让每次离店成为下次关系的开始。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section local-section" id="local">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Local Life</p>
+          <h2>在地体验</h2>
+          <p>精选低打扰、高质感的周边体验，与民宿节奏自然衔接。</p>
+        </div>
+        <div class="experience-grid">
+          <article class="experience-card reveal">
+            <img src="assets/images/tea.svg" alt="山间茶席体验" />
+            <h3>山间茶席</h3>
+            <p>清晨或傍晚入席，配本地手作点心。</p>
+          </article>
+          <article class="experience-card reveal">
+            <img src="assets/images/trail.svg" alt="轻徒步路线" />
+            <h3>轻徒步路线</h3>
+            <p>1.5 小时环线，避开拥挤景点。</p>
+          </article>
+          <article class="experience-card reveal">
+            <img src="assets/images/workshop.svg" alt="手作体验工坊" />
+            <h3>手作工坊</h3>
+            <p>植物染、木作与季节香包预约制开放。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section review-section" id="reviews">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Reviews & Data</p>
+          <h2>评价与数据</h2>
+        </div>
+        <div class="review-layout">
+          <blockquote class="review-card reveal">
+            “房间没有过度设计，却每一个细节都很舒服。管家对节奏的把握很好，需要时刚好出现，不需要时完全安静。”
+            <cite>上海住客 · 三晚家庭入住</cite>
+          </blockquote>
+          <div class="data-list reveal">
+            <div>
+              <span>复购及转介绍</span>
+              <strong>31%</strong>
+            </div>
+            <div>
+              <span>平均响应时间</span>
+              <strong>6min</strong>
+            </div>
+            <div>
+              <span>早餐好评率</span>
+              <strong>96%</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="contact-copy reveal">
+          <p class="eyebrow">Booking</p>
+          <h2>联系 / 预订</h2>
+          <p>告诉我们你的抵达日期、人数和偏好的停留方式。我们会在一个工作时段内回复可选房型与完整报价。</p>
+        </div>
+        <form class="booking-form reveal">
+          <label>
+            姓名
+            <input type="text" name="name" placeholder="请输入姓名" required />
+          </label>
+          <label>
+            电话
+            <input type="tel" name="phone" placeholder="用于确认预订" required />
+          </label>
+          <label>
+            入住日期
+            <input type="date" name="date" required />
+          </label>
+          <label>
+            偏好
+            <select name="preference">
+              <option>山景大床房</option>
+              <option>庭院复式套房</option>
+              <option>云台书房套间</option>
+              <option>需要管家推荐</option>
+            </select>
+          </label>
+          <label class="full">
+            留言
+            <textarea name="message" rows="4" placeholder="人数、抵达时间、是否需要在地体验"></textarea>
+          </label>
+          <button class="button primary full" type="submit">提交预订意向</button>
+          <p class="form-note" data-form-note></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>栖云隐舍 Qiyun Retreat</span>
+      <span>精品民宿展示与运营管理官网</span>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
