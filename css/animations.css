@@ -1,0 +1,68 @@
+@keyframes floatMist {
+  0%, 100% {
+    translate: 0 0;
+    opacity: 0.42;
+  }
+  50% {
+    translate: 0 -18px;
+    opacity: 0.62;
+  }
+}
+
+@keyframes leafDrift {
+  0%, 100% {
+    transform: rotate(var(--r, 0deg)) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: rotate(calc(var(--r, 0deg) + 3deg)) translate3d(0, -16px, 0);
+  }
+}
+
+.mist {
+  animation: floatMist 12s ease-in-out infinite;
+}
+
+.leaf-a {
+  --r: 18deg;
+  animation: leafDrift 14s ease-in-out infinite;
+}
+
+.leaf-b {
+  --r: -26deg;
+  animation: leafDrift 16s ease-in-out infinite reverse;
+}
+
+.reveal,
+.image-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 720ms var(--ease), transform 720ms var(--ease), clip-path 900ms var(--ease);
+}
+
+.image-reveal {
+  clip-path: inset(10% 0 0 0 round 18px);
+}
+
+.reveal.visible,
+.image-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  clip-path: inset(0 0 0 0 round 18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .reveal,
+  .image-reveal {
+    opacity: 1;
+    transform: none;
+    clip-path: none;
+  }
+}

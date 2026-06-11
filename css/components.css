@@ -1,0 +1,310 @@
+.button,
+.contact-method button,
+.gallery-filter button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 220ms var(--ease), background 220ms var(--ease), border-color 220ms var(--ease), box-shadow 220ms var(--ease);
+}
+
+.button:hover,
+.contact-method button:hover,
+.gallery-filter button:hover {
+  transform: translateY(-2px);
+}
+
+.button.light {
+  color: var(--deep);
+  background: var(--warm);
+  box-shadow: 0 18px 40px rgba(3, 18, 13, 0.18);
+}
+
+.button.glass {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+}
+
+.room-card {
+  position: relative;
+  display: grid;
+  min-height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 18px;
+  color: var(--white);
+  background: var(--deep);
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition: transform 240ms var(--ease), box-shadow 240ms var(--ease);
+}
+
+.room-card:hover {
+  transform: perspective(1000px) translateY(-6px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  box-shadow: 0 34px 90px rgba(3, 18, 13, 0.28);
+}
+
+.room-card figure {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.room-card.featured figure {
+  aspect-ratio: 5 / 6;
+}
+
+.room-card img {
+  transition: transform 900ms var(--ease), filter 900ms var(--ease);
+}
+
+.room-card:hover img {
+  transform: scale(1.045);
+  filter: saturate(1.08);
+}
+
+.room-card-content {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: 2;
+  padding: clamp(22px, 3vw, 34px);
+  background: linear-gradient(180deg, transparent, rgba(3, 18, 13, 0.88));
+}
+
+.room-number {
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 18px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: rgba(3, 18, 13, 0.46);
+  backdrop-filter: blur(10px);
+  font-family: Georgia, serif;
+  font-size: 13px;
+}
+
+.room-meta,
+.room-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.room-meta {
+  margin: 16px 0 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+.room-tags span {
+  padding: 5px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 13px;
+}
+
+.experience-card,
+.contact-card {
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(14px);
+}
+
+.experience-card {
+  min-height: 230px;
+  padding: 28px;
+  transition: transform 220ms var(--ease), background 220ms var(--ease);
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.74);
+}
+
+.experience-card span {
+  display: block;
+  margin-bottom: 34px;
+  color: var(--canopy);
+  font-family: Georgia, serif;
+}
+
+.gallery-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.gallery-filter button {
+  color: var(--deep);
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.gallery-filter button.active {
+  color: var(--white);
+  background: linear-gradient(135deg, var(--deep), var(--canopy));
+}
+
+.gallery-item {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: var(--deep);
+  cursor: zoom-in;
+}
+
+.gallery-item.large {
+  grid-column: span 6;
+  min-height: 560px;
+}
+
+.gallery-item.wide {
+  grid-column: span 6;
+  min-height: 360px;
+}
+
+.gallery-item.tall {
+  grid-column: span 4;
+  min-height: 590px;
+}
+
+.gallery-item.regular {
+  grid-column: span 4;
+}
+
+.gallery-item img {
+  transition: transform 900ms var(--ease), filter 900ms var(--ease);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+  filter: saturate(1.08);
+}
+
+.gallery-caption {
+  position: absolute;
+  inset: auto 0 0;
+  padding: 76px 20px 20px;
+  color: var(--white);
+  background: linear-gradient(180deg, transparent, rgba(3, 18, 13, 0.86));
+  text-align: left;
+  transform: translateY(18px);
+  transition: transform 220ms var(--ease);
+}
+
+.gallery-item:hover .gallery-caption {
+  transform: translateY(0);
+}
+
+.gallery-caption strong,
+.gallery-caption span {
+  display: block;
+}
+
+.gallery-caption span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 14px;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 72px clamp(16px, 4vw, 72px);
+  background: rgba(2, 12, 9, 0.92);
+}
+
+.lightbox.open {
+  display: flex;
+}
+
+.lightbox figure {
+  width: min(1120px, 100%);
+  margin: 0;
+}
+
+.lightbox img {
+  max-height: 76vh;
+  object-fit: contain;
+  border-radius: 18px;
+}
+
+.lightbox figcaption {
+  margin-top: 14px;
+  color: rgba(255, 255, 255, 0.78);
+  text-align: center;
+}
+
+.lightbox-close,
+.lightbox-step {
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+}
+
+.lightbox-close {
+  top: 22px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  font-size: 30px;
+}
+
+.lightbox-step {
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  transform: translateY(-50%);
+  font-size: 38px;
+}
+
+.lightbox-step.prev {
+  left: 22px;
+}
+
+.lightbox-step.next {
+  right: 22px;
+}
+
+.back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 70;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 50%;
+  color: var(--white);
+  background: rgba(3, 18, 13, 0.76);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 180ms var(--ease), transform 180ms var(--ease);
+}
+
+.back-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
