@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract family room placeholder">
+  <rect width="720" height="560" fill="#123f31"/>
+  <circle cx="172" cy="150" r="150" fill="#b8c9b3" opacity=".16"/>
+  <circle cx="520" cy="220" r="210" fill="#1f8ca6" opacity=".13"/>
+  <path d="M92 440h536v52H92z" fill="#f5efe1" opacity=".18"/>
+  <path d="M118 312h210v128H118zM392 275h210v165H392z" fill="#fbf8ef" opacity=".1"/>
+  <path d="M0 510C130 420 300 566 438 450S612 360 750 410" fill="none" stroke="#77c7cf" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+  <path d="M68 560c78-172 194-286 350-340-38 142-142 252-350 340Z" fill="#071c16" opacity=".42"/>
+</svg>

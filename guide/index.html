@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>入住指引 | 版纳人家 Banna Renjia</title>
+    <meta name="description" content="版纳人家入住指引保留页。具体抵达与入住信息将在确认房态后通过微信发送。" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/brand-mark.svg" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <script src="../js/data.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/interactions.js" defer></script>
+  </head>
+  <body data-page="guide" data-root="../">
+    <header class="site-header" data-header>
+      <a class="brand-lockup" href="../index.html" aria-label="返回版纳人家首页">
+        <span class="brand-mark">BR</span>
+        <span>
+          <strong>版纳人家</strong>
+          <small>Banna Renjia</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html" data-nav-item="home">首页</a>
+        <a href="../rooms/index.html" data-nav-item="rooms">房间</a>
+        <a href="../gallery/index.html" data-nav-item="gallery">图库</a>
+        <a href="../location/index.html" data-nav-item="location">位置</a>
+        <a href="../contact/index.html" data-nav-item="contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero contact-hero" data-hero>
+        <div class="page-hero-copy reveal">
+          <p class="eyebrow">Stay Guide</p>
+          <h1>入住指引将在确认后通过微信发送。</h1>
+          <p>这页作为旧入口保留，不公开精确门牌。请先确认房态、日期与人数。</p>
+        </div>
+      </section>
+
+      <section class="booking-band">
+        <div class="booking-card reveal">
+          <p class="eyebrow">Contact First</p>
+          <h2>添加微信确认房态与入住需求。</h2>
+          <p>请备注：<strong data-inquiry-prompt></strong></p>
+          <div class="contact-lines">
+            <span>微信 <strong data-contact-wechat></strong></span>
+            <a href="tel:13309135639" data-contact-phone-link>电话 <strong data-contact-phone></strong></a>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" data-copy-wechat>复制微信号</button>
+            <a class="btn btn-soft" href="../contact/index.html">查看联系页</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-top" type="button" data-back-top aria-label="返回顶部">↑</button>
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+      <span>版纳人家 Banna Renjia</span>
+      <span>Guide is shared after booking confirmation</span>
+    </footer>
+  </body>
+</html>

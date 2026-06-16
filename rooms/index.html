@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>房间 | 版纳人家 Banna Renjia</title>
+    <meta name="description" content="版纳人家房间页，展示适合连住、同层、家庭和情侣入住的景洪雨林民宿房间集合。" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/brand-mark.svg" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <script src="../js/data.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/interactions.js" defer></script>
+  </head>
+  <body data-page="rooms" data-root="../">
+    <header class="site-header" data-header>
+      <a class="brand-lockup" href="../index.html" aria-label="返回版纳人家首页">
+        <span class="brand-mark">BR</span>
+        <span>
+          <strong>版纳人家</strong>
+          <small>Banna Renjia</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html" data-nav-item="home">首页</a>
+        <a href="index.html" data-nav-item="rooms">房间</a>
+        <a href="../gallery/index.html" data-nav-item="gallery">图库</a>
+        <a href="../location/index.html" data-nav-item="location">位置</a>
+        <a href="../contact/index.html" data-nav-item="contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero room-hero" data-hero>
+        <div class="page-hero-copy reveal">
+          <p class="eyebrow">Rooms / Multi-room Homestay</p>
+          <h1>多房间民宿集合，不是单栋别墅。</h1>
+          <p>适合情侣、家庭、朋友、连住与同层需求。每个房型方向都以雨林、江水或半山气质区分。</p>
+        </div>
+        <div class="page-hero-panel reveal">
+          <span>微信咨询</span>
+          <strong data-contact-wechat></strong>
+          <small>备注：<span data-inquiry-prompt></span></small>
+        </div>
+      </section>
+
+      <section class="section rooms-overview">
+        <div class="stat-strip reveal">
+          <span><strong>5+</strong>房型方向</span>
+          <span><strong>1-4</strong>人灵活入住</span>
+          <span><strong>可沟通</strong>连住 / 同层</span>
+        </div>
+        <div class="room-list" data-room-list></div>
+      </section>
+
+      <section class="booking-band slim">
+        <div class="booking-card reveal">
+          <p class="eyebrow">Room Inquiry</p>
+          <h2>想确认连住或同层，请直接微信沟通。</h2>
+          <p>请备注：<strong data-inquiry-prompt></strong></p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" data-copy-wechat>复制微信号</button>
+            <a class="btn btn-soft" href="../contact/index.html">联系与 FAQ</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <dialog class="room-modal" data-room-modal aria-label="房间详情">
+      <button class="modal-close" type="button" data-room-modal-close aria-label="关闭">×</button>
+      <div data-room-modal-content></div>
+    </dialog>
+
+    <button class="back-top" type="button" data-back-top aria-label="返回顶部">↑</button>
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+      <span>版纳人家 Banna Renjia</span>
+      <span>Rooms / Same-floor needs / Long stay</span>
+    </footer>
+  </body>
+</html>

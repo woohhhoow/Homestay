@@ -1,21 +1,25 @@
 :root {
-  --black-green: #03120d;
-  --deep: #071d16;
-  --forest: #0f3527;
-  --canopy: #1f6043;
-  --moss: #718b5e;
-  --mist: #dfeace;
-  --paper: #f7f1e5;
-  --warm: #fffaf1;
-  --sand: #c9ad7d;
-  --brown: #6f4d36;
-  --ink: #102019;
-  --muted: #677366;
-  --line: rgba(28, 66, 47, 0.16);
-  --white: #ffffff;
-  --max: 1240px;
-  --header: 76px;
-  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --forest-950: #07130f;
+  --forest-900: #0a1c16;
+  --forest-820: #102920;
+  --forest-720: #1a3b2d;
+  --moss-600: #5f7b55;
+  --moss-300: #b9c7a6;
+  --mist-100: #eef3e8;
+  --rice-50: #f7f1e5;
+  --sand-120: #e7d5b5;
+  --wood-500: #7a5d3a;
+  --river-500: #2f9fc8;
+  --river-300: #7fd3e9;
+  --peacock-700: #12636c;
+  --ink: #13201b;
+  --muted: #6c766f;
+  --line: rgba(238, 243, 232, 0.18);
+  --line-dark: rgba(19, 32, 27, 0.14);
+  --shadow-soft: 0 20px 60px rgba(7, 19, 15, 0.22);
+  --radius: 8px;
+  --content: 1180px;
+  --header-height: 78px;
 }
 
 * {
@@ -23,53 +27,33 @@
 }
 
 html {
+  min-width: 320px;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
-  overflow-x: hidden;
   color: var(--ink);
   background:
-    radial-gradient(circle at 10% 8%, rgba(223, 234, 206, 0.32), transparent 26rem),
-    radial-gradient(circle at 90% 14%, rgba(31, 96, 67, 0.18), transparent 28rem),
-    linear-gradient(180deg, #eef5e7 0%, var(--paper) 34%, #f4efe2 100%);
-  font-family: "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+    radial-gradient(circle at 12% 8%, rgba(47, 159, 200, 0.12), transparent 28rem),
+    linear-gradient(180deg, var(--rice-50), #f3eadb 42%, #edf2e8 100%);
+  font-family:
+    "Inter", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui,
+    -apple-system, BlinkMacSystemFont, sans-serif;
   line-height: 1.68;
+  overflow-x: hidden;
 }
 
-body::before {
-  position: fixed;
-  inset: 0;
-  z-index: -2;
-  content: "";
-  pointer-events: none;
-  opacity: 0.4;
-  background:
-    url("../assets/decor/rainforest-motif.svg") top 12rem center / 1300px auto no-repeat,
-    url("../assets/decor/mist-rings.svg") top 34rem right -10rem / 820px auto no-repeat;
+body.nav-open,
+body.lightbox-open,
+body.modal-open {
+  overflow: hidden;
 }
 
-body::after {
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  content: "";
-  pointer-events: none;
-  opacity: 0.26;
-  background-image:
-    linear-gradient(rgba(7, 29, 22, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(7, 29, 22, 0.035) 1px, transparent 1px);
-  background-size: 38px 38px;
-  mask-image: linear-gradient(180deg, transparent, #000 16%, #000 82%, transparent);
-}
-
-img {
+img,
+svg {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  background: linear-gradient(135deg, rgba(7, 29, 22, 0.12), rgba(223, 234, 206, 0.4));
+  max-width: 100%;
 }
 
 a {
@@ -77,67 +61,123 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input,
+textarea {
   font: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 h1,
 h2,
 h3,
-p,
-figure {
-  margin-top: 0;
+p {
+  margin: 0;
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Noto Serif SC", "Songti SC", Georgia, serif;
-  font-weight: 500;
+  font-family:
+    "Cormorant Garamond", "Noto Serif SC", "Songti SC", Georgia, serif;
   line-height: 1.06;
+  font-weight: 600;
   letter-spacing: 0;
 }
 
 h1 {
-  margin-bottom: 24px;
-  font-size: clamp(64px, 11vw, 148px);
-}
-
-h1 small {
-  display: block;
-  margin-top: 10px;
-  color: rgba(255, 255, 255, 0.72);
-  font-family: Georgia, serif;
-  font-size: clamp(22px, 3vw, 42px);
+  font-size: 4.75rem;
 }
 
 h2 {
-  margin-bottom: 22px;
-  font-size: clamp(36px, 5.8vw, 76px);
+  font-size: 3rem;
 }
 
 h3 {
-  margin-bottom: 10px;
-  font-size: clamp(22px, 2.4vw, 31px);
+  font-size: 1.55rem;
 }
 
 p {
-  margin-bottom: 0;
+  color: rgba(19, 32, 27, 0.74);
 }
 
-.eyebrow {
-  margin-bottom: 16px;
-  color: var(--canopy);
-  font-family: Georgia, serif;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.muted {
-  color: var(--muted);
+strong {
+  font-weight: 700;
 }
 
 ::selection {
-  background: rgba(201, 173, 125, 0.42);
+  color: var(--rice-50);
+  background: var(--peacock-700);
+}
+
+.eyebrow {
+  color: var(--peacock-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.section {
+  position: relative;
+  width: min(var(--content), calc(100% - 48px));
+  margin: 0 auto;
+  padding: 112px 0;
+}
+
+.section-heading {
+  max-width: 780px;
+  margin-bottom: 44px;
+}
+
+.section-heading h2 {
+  margin-top: 14px;
+}
+
+.section-heading p:not(.eyebrow) {
+  max-width: 660px;
+  margin-top: 18px;
+}
+
+.section-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+  color: var(--peacock-700);
+  font-weight: 700;
+}
+
+.text-link::after {
+  content: "";
+  width: 42px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left center;
+  transition: transform 180ms ease;
+}
+
+.text-link:hover::after {
+  transform: scaleX(1.4);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

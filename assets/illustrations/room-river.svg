@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract Lancang river room placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#08201a"/>
+      <stop offset=".58" stop-color="#173a32"/>
+      <stop offset="1" stop-color="#1f8ca6"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="560" fill="url(#bg)"/>
+  <path d="M-35 395C118 268 210 505 384 345S590 170 765 245" fill="none" stroke="#77c7cf" stroke-width="26" stroke-linecap="round" opacity=".66"/>
+  <path d="M-25 452C130 352 260 540 444 414S620 314 758 350" fill="none" stroke="#fbf8ef" stroke-width="2" stroke-dasharray="12 18" opacity=".54"/>
+  <path d="M0 560 180 330 304 430 462 238 590 404 720 260v300Z" fill="#071c16" opacity=".54"/>
+  <circle cx="560" cy="132" r="112" fill="#77c7cf" opacity=".13"/>
+  <circle cx="610" cy="158" r="168" fill="#b8c9b3" opacity=".08"/>
+</svg>

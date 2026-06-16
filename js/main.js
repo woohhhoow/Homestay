@@ -1,192 +1,240 @@
 (function () {
-  const data = window.siteData;
-  const qs = (selector, root = document) => root.querySelector(selector);
-  const qsa = (selector, root = document) => [...root.querySelectorAll(selector)];
+  const data = window.BannaData;
+  const root = document.body.dataset.root || "";
+  const qs = (selector, scope = document) => scope.querySelector(selector);
+  const qsa = (selector, scope = document) => Array.from(scope.querySelectorAll(selector));
 
-  const setText = (selector, value) => {
-    qsa(selector).forEach((node) => {
-      node.textContent = value;
+  const icons = {
+    key: "M7 14a5 5 0 1 1 4.4 2.5L9 19H6v-3H3v-2h4Z",
+    spark: "M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z",
+    quiet: "M5 13c5-8 10-8 14 0-4 5-9 6-14 0Z",
+    chat: "M5 17l.7-3A6 6 0 1 1 9 18l-4 2v-3Z",
+    guide: "M5 6l5-2 4 2 5-2v14l-5 2-4-2-5 2V6Z",
+    bag: "M7 8h10l1 11H6L7 8Zm3 0V6a2 2 0 0 1 4 0v2",
+  };
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
+
+  function normalizeMediaPath(src) {
+    if (!src || src.startsWith("placeholder:") || src.startsWith("http") || src.startsWith("data:") || src.startsWith("/")) {
+      return src;
+    }
+    return `${root}${src.replace(/^(\.\/|\.\.\/)+/, "")}`;
+  }
+
+  function placeholderName(src) {
+    return src.replace("placeholder:", "") || "rainforest";
+  }
+
+  function mediaMarkup(src, label, lazy = true) {
+    if (!src || src.startsWith("placeholder:")) {
+      const visual = placeholderName(src || "placeholder:rainforest");
+      return `<div class="visual-placeholder" data-visual="${escapeHtml(visual)}" role="img" aria-label="${escapeHtml(label)}"><span>${escapeHtml(label)}</span></div>`;
+    }
+
+    const loading = lazy ? ' loading="lazy"' : "";
+    const path = normalizeMediaPath(src);
+    return `<picture class="media-image"><img src="${escapeHtml(path)}" alt="${escapeHtml(label)}"${loading} decoding="async" /></picture>`;
+  }
+
+  function iconMarkup(name) {
+    const path = icons[name] || icons.spark;
+    return `<span class="line-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="${path}" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>`;
+  }
+
+  function renderContact() {
+    qsa("[data-contact-wechat]").forEach((node) => {
+      node.textContent = data.contact.wechat;
     });
-  };
-
-  const renderNav = () => {
-    const nav = qs("[data-nav]");
-    if (!nav) return;
-    nav.innerHTML = data.nav.map((item) => `<a href="${item.target}" data-nav-link="${item.target}">${item.label}</a>`).join("");
-  };
-
-  const renderBrand = () => {
-    setText("[data-brand-name]", data.brand.name);
-    setText("[data-brand-en]", data.brand.englishName);
-    setText("[data-brand-tagline]", data.brand.tagline);
-    setText("[data-brand-location]", data.brand.location);
-    setText("[data-brand-description]", data.brand.description);
-    setText("[data-contact-wechat]", data.contact.wechat);
-    setText("[data-contact-phone]", data.contact.phone);
-    setText("[data-inquiry-prompt]", data.contact.inquiryPrompt);
-    qsa("[data-phone-link]").forEach((link) => {
-      link.href = `tel:${data.contact.phone}`;
+    qsa("[data-contact-phone]").forEach((node) => {
+      node.textContent = data.contact.phone;
     });
-    const hero = qs("[data-hero-image]");
-    if (hero) hero.src = data.brand.heroImage;
-  };
+    qsa("[data-contact-phone-link]").forEach((node) => {
+      node.setAttribute("href", `tel:${data.contact.phone}`);
+    });
+    qsa("[data-inquiry-prompt]").forEach((node) => {
+      node.textContent = data.contact.inquiryPrompt;
+    });
+  }
 
-  const renderRooms = () => {
-    const list = qs("[data-room-list]");
-    if (!list) return;
-    list.innerHTML = data.rooms
-      .map(
-        (room, index) => `
-          <article class="room-card ${index === 0 ? "featured" : ""} reveal">
-            <span class="room-number">${room.roomNumber}</span>
-            <figure>
-              <img src="${room.cover}" alt="${room.title}" loading="lazy" decoding="async" width="900" height="680" sizes="(max-width: 760px) 92vw, (max-width: 1060px) 88vw, ${index === 0 ? "640px" : "420px"}" />
-            </figure>
-            <div class="room-card-content">
-              <h3>${room.title}</h3>
-              <p>${room.description}</p>
-              <div class="room-meta"><span>${room.view}</span><span>${room.capacity}</span></div>
-              <div class="room-tags">${room.tags.map((tag) => `<span>${tag}</span>`).join("")}</div>
+  function roomCard(room, featured = false) {
+    const tags = room.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+    const highlights = room.highlights.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+    return `
+      <article class="room-card reveal" data-room-card="${escapeHtml(room.id)}">
+        ${mediaMarkup(room.cover, `${room.title} 氛围视觉`, !featured)}
+        <div class="room-card-body">
+          <span class="room-number">Room ${escapeHtml(room.roomNumber)}</span>
+          <h3>${escapeHtml(room.title)}</h3>
+          <p>${escapeHtml(room.description)}</p>
+          <dl class="room-meta">
+            <div><dt>面积</dt><dd>${escapeHtml(room.area)}</dd></div>
+            <div><dt>人数</dt><dd>${escapeHtml(room.capacity)}</dd></div>
+            <div><dt>景观</dt><dd>${escapeHtml(room.view)}</dd></div>
+          </dl>
+          <div class="tag-row">${tags}</div>
+          <div class="room-card-actions">
+            <span>${escapeHtml(room.stayFit)}</span>
+            <button class="link-button" type="button" data-room-open="${escapeHtml(room.id)}">查看详情</button>
+          </div>
+          <template data-room-template="${escapeHtml(room.id)}">
+            <div class="modal-content">
+              ${mediaMarkup(room.images[0] || room.cover, `${room.title} 详情视觉`, false)}
+              <div class="modal-copy">
+                <span class="room-number">Room ${escapeHtml(room.roomNumber)}</span>
+                <h2>${escapeHtml(room.title)}</h2>
+                <p>${escapeHtml(room.description)}</p>
+                <dl class="room-meta">
+                  <div><dt>面积</dt><dd>${escapeHtml(room.area)}</dd></div>
+                  <div><dt>人数</dt><dd>${escapeHtml(room.capacity)}</dd></div>
+                  <div><dt>景观</dt><dd>${escapeHtml(room.view)}</dd></div>
+                </dl>
+                <ul>${highlights}</ul>
+                <div class="tag-row">${tags}</div>
+                <button class="btn btn-primary" type="button" data-copy-wechat>复制微信咨询</button>
+              </div>
             </div>
-          </article>
-        `
-      )
-      .join("");
-  };
+          </template>
+        </div>
+      </article>
+    `;
+  }
 
-  const renderLandscape = () => {
-    const list = qs("[data-landscape-list]");
-    if (!list) return;
-    list.innerHTML = data.landscape
-      .map(
-        (item) => `
-          <article class="landscape-tile reveal">
-            <span>${item.title}</span>
-            <h3>${item.label}</h3>
-            <p>${item.text}</p>
-          </article>
-        `
-      )
-      .join("");
-  };
+  function renderRooms() {
+    const featured = qs("[data-featured-rooms]");
+    const fullList = qs("[data-room-list]");
+    if (featured) {
+      featured.innerHTML = data.rooms.slice(0, 3).map((room) => roomCard(room, true)).join("");
+    }
+    if (fullList) {
+      fullList.innerHTML = data.rooms.map((room) => roomCard(room)).join("");
+    }
+  }
 
-  const renderExperience = () => {
-    const list = qs("[data-experience-list]");
-    if (!list) return;
-    list.innerHTML = data.experiences
+  function renderExperiences() {
+    const preview = qs("[data-experience-preview]");
+    if (!preview) return;
+    preview.innerHTML = data.experiences
       .map(
         (item) => `
           <article class="experience-card reveal">
-            <span>${item.icon}</span>
-            <h3>${item.title}</h3>
-            <p>${item.text}</p>
+            ${iconMarkup(item.icon)}
+            <h3>${escapeHtml(item.title)}</h3>
+            <p>${escapeHtml(item.text)}</p>
           </article>
         `
       )
       .join("");
-  };
+  }
 
-  const initHeader = () => {
-    const header = qs("[data-header]");
-    const nav = qs("[data-nav]");
-    const toggle = qs("[data-nav-toggle]");
-    if (!header || !nav || !toggle) return;
-    const close = () => {
-      nav.classList.remove("open");
-      header.classList.remove("menu-open");
-      document.body.classList.remove("nav-open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.setAttribute("aria-label", "打开导航");
-    };
-    toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("open");
-      header.classList.toggle("menu-open", open);
-      document.body.classList.toggle("nav-open", open);
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.setAttribute("aria-label", open ? "关闭导航" : "打开导航");
-    });
-    nav.addEventListener("click", (event) => {
-      if (event.target.closest("a")) close();
-    });
-    window.addEventListener("scroll", () => header.classList.toggle("scrolled", window.scrollY > 24), { passive: true });
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 760) close();
-    });
-  };
+  function galleryPiece(item, index, compact = false) {
+    return `
+      <button class="gallery-piece ${escapeHtml(item.size || "regular")}" type="button" data-gallery-index="${index}" data-category="${escapeHtml(item.category)}">
+        ${mediaMarkup(item.src, `${item.title} 氛围视觉`, !compact && index > 1)}
+        <span class="gallery-piece-caption">
+          <strong>${escapeHtml(item.title)}</strong>
+          <small>${escapeHtml(item.caption)}</small>
+        </span>
+      </button>
+    `;
+  }
 
-  const initReveal = () => {
-    const items = qsa(".reveal, .image-reveal");
-    if (!("IntersectionObserver" in window)) {
-      items.forEach((item) => item.classList.add("visible"));
-      return;
+  function renderGalleryPreview() {
+    const preview = qs("[data-gallery-preview]");
+    if (!preview) return;
+    preview.innerHTML = data.gallery.slice(0, 5).map((item, index) => galleryPiece(item, index, true)).join("");
+  }
+
+  function renderLocation() {
+    const list = qs("[data-location-points]");
+    if (list) {
+      list.innerHTML = data.locationPoints
+        .map(
+          (item) => `
+            <article class="location-point">
+              <strong>${escapeHtml(item.title)}</strong>
+              <p>${escapeHtml(item.text)}</p>
+            </article>
+          `
+        )
+        .join("");
     }
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.14, rootMargin: "0px 0px -60px 0px" }
-    );
-    items.forEach((item) => observer.observe(item));
-  };
 
-  const initActiveNav = () => {
-    if (!("IntersectionObserver" in window)) return;
-    const links = qsa("[data-nav-link]");
-    const sections = links.map((link) => qs(link.dataset.navLink)).filter(Boolean);
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          links.forEach((link) => link.classList.toggle("active", link.dataset.navLink === `#${entry.target.id}`));
-        });
-      },
-      { threshold: 0.32, rootMargin: "-18% 0px -56% 0px" }
-    );
-    sections.forEach((section) => observer.observe(section));
-  };
+    const timeline = qs("[data-location-timeline]");
+    if (timeline) {
+      timeline.innerHTML = data.locationTimeline
+        .map((item) => `<div class="timeline-item">${escapeHtml(item)}</div>`)
+        .join("");
+    }
+  }
 
-  const initCopy = () => {
-    const button = qs("[data-copy-wechat]");
-    const note = qs("[data-copy-note]");
-    if (!button || !note) return;
-    button.addEventListener("click", async () => {
-      try {
-        await navigator.clipboard.writeText(data.contact.wechat);
-        note.textContent = "已复制微信号。";
-      } catch (error) {
-        note.textContent = `微信号：${data.contact.wechat}`;
-      }
+  function renderFaq() {
+    const list = qs("[data-faq-list]");
+    if (!list) return;
+    list.innerHTML = data.faq
+      .map(
+        (item) => `
+          <article class="faq-item">
+            <h3>${escapeHtml(item.question)}</h3>
+            <p>${escapeHtml(item.answer)}</p>
+          </article>
+        `
+      )
+      .join("");
+  }
+
+  function initRoomModal() {
+    const modal = qs("[data-room-modal]");
+    const content = qs("[data-room-modal-content]");
+    if (!modal || !content) return;
+
+    document.addEventListener("click", (event) => {
+      const opener = event.target.closest("[data-room-open]");
+      if (!opener) return;
+      const template = qs(`[data-room-template="${opener.dataset.roomOpen}"]`);
+      if (!template) return;
+      content.innerHTML = template.innerHTML;
+      modal.showModal();
+      document.body.classList.add("modal-open");
     });
-  };
 
-  const initBackTop = () => {
-    const button = qs("[data-back-top]");
-    if (!button) return;
-    window.addEventListener("scroll", () => button.classList.toggle("visible", window.scrollY > 520), { passive: true });
-    button.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-  };
-
-  const initImageHints = () => {
-    qsa("img").forEach((image) => {
-      image.decoding = image.decoding || "async";
-      if (!image.closest(".hero-image") && !image.hasAttribute("loading")) image.loading = "lazy";
+    qsa("[data-room-modal-close]").forEach((button) => {
+      button.addEventListener("click", () => modal.close());
     });
+
+    modal.addEventListener("close", () => {
+      document.body.classList.remove("modal-open");
+      content.innerHTML = "";
+    });
+  }
+
+  function renderAll() {
+    renderContact();
+    renderRooms();
+    renderExperiences();
+    renderGalleryPreview();
+    renderLocation();
+    renderFaq();
+    initRoomModal();
+    document.dispatchEvent(new CustomEvent("banna:rendered"));
+  }
+
+  window.Banna = {
+    data,
+    qs,
+    qsa,
+    escapeHtml,
+    mediaMarkup,
+    galleryPiece,
+    normalizeMediaPath,
   };
 
-  renderNav();
-  renderBrand();
-  renderRooms();
-  renderLandscape();
-  renderExperience();
-  initHeader();
-  initCopy();
-  initBackTop();
-  initImageHints();
-  initReveal();
-  initActiveNav();
+  document.addEventListener("DOMContentLoaded", renderAll);
 })();

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract rainforest canopy">
+  <rect width="720" height="560" fill="#071c16"/>
+  <path d="M84 0c142 90 206 246 112 560H0V0Z" fill="#1b5b47" opacity=".76"/>
+  <path d="M642 0c-126 132-160 318-88 560h166V0Z" fill="#6f8666" opacity=".54"/>
+  <path d="M258 560c74-230 206-390 396-482-14 210-154 374-396 482Z" fill="#b8c9b3" opacity=".2"/>
+  <path d="M-20 430C122 330 250 506 420 370S610 254 750 312" fill="none" stroke="#77c7cf" stroke-width="7" opacity=".45"/>
+</svg>

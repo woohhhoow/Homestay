@@ -1,53 +1,120 @@
-@keyframes floatMist {
-  0%, 100% {
-    translate: 0 0;
-    opacity: 0.42;
-  }
-  50% {
-    translate: 0 -18px;
-    opacity: 0.62;
-  }
-}
-
-@keyframes leafDrift {
-  0%, 100% {
-    transform: rotate(var(--r, 0deg)) translate3d(0, 0, 0);
-  }
-  50% {
-    transform: rotate(calc(var(--r, 0deg) + 3deg)) translate3d(0, -16px, 0);
-  }
-}
-
-.mist {
-  animation: floatMist 12s ease-in-out infinite;
-}
-
-.leaf-a {
-  --r: 18deg;
-  animation: leafDrift 14s ease-in-out infinite;
-}
-
-.leaf-b {
-  --r: -26deg;
-  animation: leafDrift 16s ease-in-out infinite reverse;
-}
-
-.reveal,
-.image-reveal {
+.reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 720ms var(--ease), transform 720ms var(--ease), clip-path 900ms var(--ease);
+  transform: translateY(24px);
+  transition:
+    opacity 620ms ease,
+    transform 620ms ease;
 }
 
-.image-reveal {
-  clip-path: inset(10% 0 0 0 round 18px);
-}
-
-.reveal.visible,
-.image-reveal.visible {
+.reveal.visible {
   opacity: 1;
   transform: translateY(0);
-  clip-path: inset(0 0 0 0 round 18px);
+}
+
+.hero-copy .eyebrow,
+.hero-copy h1,
+.hero-copy .hero-subtitle,
+.hero-copy .hero-meta,
+.hero-copy .hero-actions {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: titleRise 700ms ease forwards;
+}
+
+.hero-copy h1 {
+  animation-delay: 120ms;
+}
+
+.hero-copy .hero-subtitle {
+  animation-delay: 240ms;
+}
+
+.hero-copy .hero-meta {
+  animation-delay: 360ms;
+}
+
+.hero-copy .hero-actions {
+  animation-delay: 480ms;
+}
+
+.mist-one {
+  animation: mistDrift 18s ease-in-out infinite alternate;
+}
+
+.mist-two {
+  animation: mistDrift 24s ease-in-out infinite alternate-reverse;
+}
+
+.leaf-left,
+.leaf-right,
+.leaf-low {
+  animation: leafFloat 9s ease-in-out infinite alternate;
+}
+
+.leaf-right {
+  animation-duration: 12s;
+}
+
+.leaf-low {
+  animation-duration: 14s;
+}
+
+.river-thread path,
+.map-water,
+.water-line {
+  animation: riverFlow 9s linear infinite;
+}
+
+.map-pin::before,
+.map-dot::before {
+  animation: pinBreathe 2.8s ease-in-out infinite;
+}
+
+@keyframes titleRise {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mistDrift {
+  from {
+    transform: translateX(-4%);
+  }
+  to {
+    transform: translateX(7%);
+  }
+}
+
+@keyframes leafFloat {
+  from {
+    margin-top: -10px;
+  }
+  to {
+    margin-top: 10px;
+  }
+}
+
+@keyframes riverFlow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes pinBreathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 8px rgba(127, 211, 233, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 0 16px rgba(127, 211, 233, 0.02);
+  }
+}
+
+@keyframes flowBorder {
+  to {
+    filter: hue-rotate(20deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -55,14 +122,8 @@
   *::before,
   *::after {
     scroll-behavior: auto !important;
-    transition: none !important;
-    animation: none !important;
-  }
-
-  .reveal,
-  .image-reveal {
-    opacity: 1;
-    transform: none;
-    clip-path: none;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
 }

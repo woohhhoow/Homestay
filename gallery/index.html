@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>图库 | 版纳人家 Banna Renjia</title>
+    <meta name="description" content="版纳人家图库页，以不规则图集呈现雨林、江水、半山和安静入住的视觉片段。" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/brand-mark.svg" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <script src="../js/data.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/interactions.js" defer></script>
+    <script src="../js/gallery.js" defer></script>
+  </head>
+  <body data-page="gallery" data-root="../">
+    <header class="site-header" data-header>
+      <a class="brand-lockup" href="../index.html" aria-label="返回版纳人家首页">
+        <span class="brand-mark">BR</span>
+        <span>
+          <strong>版纳人家</strong>
+          <small>Banna Renjia</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html" data-nav-item="home">首页</a>
+        <a href="../rooms/index.html" data-nav-item="rooms">房间</a>
+        <a href="index.html" data-nav-item="gallery">图库</a>
+        <a href="../location/index.html" data-nav-item="location">位置</a>
+        <a href="../contact/index.html" data-nav-item="contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero gallery-hero" data-hero>
+        <div class="page-hero-copy reveal">
+          <p class="eyebrow">Gallery / Rainforest Immersion</p>
+          <h1>雨林、江水、半山与安静入住的视觉片段。</h1>
+          <p>图集以不规则节奏展开，让景洪的湿润空气、蓝色水线和植物层次慢慢浮现。</p>
+        </div>
+      </section>
+
+      <section class="section gallery-page-section">
+        <div class="filter-bar reveal" data-gallery-filters></div>
+        <div class="gallery-masonry" data-gallery-grid></div>
+      </section>
+    </main>
+
+    <div class="lightbox" data-lightbox aria-hidden="true">
+      <button class="lightbox-close" type="button" data-lightbox-close aria-label="关闭">×</button>
+      <button class="lightbox-step lightbox-prev" type="button" data-lightbox-prev aria-label="上一张">‹</button>
+      <figure>
+        <div data-lightbox-media></div>
+        <figcaption data-lightbox-caption></figcaption>
+      </figure>
+      <button class="lightbox-step lightbox-next" type="button" data-lightbox-next aria-label="下一张">›</button>
+    </div>
+
+    <button class="back-top" type="button" data-back-top aria-label="返回顶部">↑</button>
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+      <span>版纳人家 Banna Renjia</span>
+      <span>Gallery / Placeholder visuals / Future photography</span>
+    </footer>
+  </body>
+</html>

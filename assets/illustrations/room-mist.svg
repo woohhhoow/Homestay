@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract mist room placeholder">
+  <rect width="720" height="560" fill="#eef2e6"/>
+  <path d="M0 398C140 308 284 455 430 350S590 250 720 280" fill="none" stroke="#1f8ca6" stroke-width="12" stroke-linecap="round" opacity=".38"/>
+  <path d="M0 560 170 330 302 420 446 240 590 418 720 310v250Z" fill="#123f31" opacity=".22"/>
+  <path d="M80 150c160 62 320 68 520-14M40 225c220 70 410 64 640-20M110 300c160 52 310 54 470-10" fill="none" stroke="#0b2b22" stroke-width="2" stroke-dasharray="10 18" opacity=".18"/>
+  <circle cx="240" cy="190" r="120" fill="#fff" opacity=".38"/>
+  <circle cx="470" cy="250" r="170" fill="#fff" opacity=".25"/>
+</svg>

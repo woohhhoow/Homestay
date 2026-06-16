@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract Lancang river gallery">
+  <rect width="720" height="560" fill="#0b2b22"/>
+  <path d="M-30 250C96 148 204 340 340 222S560 80 752 160" fill="none" stroke="#77c7cf" stroke-width="42" stroke-linecap="round" opacity=".6"/>
+  <path d="M-40 344C115 238 260 432 438 298S622 220 760 260" fill="none" stroke="#1f8ca6" stroke-width="14" stroke-linecap="round" opacity=".72"/>
+  <path d="M0 560 140 380 280 460 424 320 560 455 720 340v220Z" fill="#071c16" opacity=".6"/>
+</svg>

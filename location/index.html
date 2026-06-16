@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>位置 | 版纳人家 Banna Renjia</title>
+    <meta name="description" content="版纳人家位于云南西双版纳景洪保利雨林澜山，傣王宫旧址半山，以抽象地图表达澜沧江、雨林和半山社区环境。" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/brand-mark.svg" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <script src="../js/data.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/interactions.js" defer></script>
+  </head>
+  <body data-page="location" data-root="../">
+    <header class="site-header" data-header>
+      <a class="brand-lockup" href="../index.html" aria-label="返回版纳人家首页">
+        <span class="brand-mark">BR</span>
+        <span>
+          <strong>版纳人家</strong>
+          <small>Banna Renjia</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html" data-nav-item="home">首页</a>
+        <a href="../rooms/index.html" data-nav-item="rooms">房间</a>
+        <a href="../gallery/index.html" data-nav-item="gallery">图库</a>
+        <a href="index.html" data-nav-item="location">位置</a>
+        <a href="../contact/index.html" data-nav-item="contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero location-hero" data-hero>
+        <div class="page-hero-copy reveal">
+          <p class="eyebrow">Location / Jinghong Half Mountain</p>
+          <h1>景洪、澜沧江、雨林与半山社区。</h1>
+          <p>不使用普通地图截图，不公开精确门牌地址；以抽象地图呈现抵达前的地理气质。</p>
+        </div>
+      </section>
+
+      <section class="section location-main">
+        <div class="location-visual reveal" aria-hidden="true">
+          <svg viewBox="0 0 900 560">
+            <path class="terrain terrain-back" d="M10 445 L140 275 L245 360 L360 190 L500 358 L630 250 L880 450 Z" />
+            <path class="terrain terrain-front" d="M0 510 L165 340 L280 430 L410 282 L555 440 L700 318 L900 520 Z" />
+            <path class="water-line" d="M20 355 C165 230 258 410 408 286 S640 150 850 245" />
+            <path class="water-line soft" d="M10 420 C190 342 285 492 455 372 S690 260 885 330" />
+            <path class="route-line" d="M236 364 C330 312 420 326 510 270 S635 230 720 205" />
+          </svg>
+          <span class="map-dot dot-city">景洪</span>
+          <span class="map-dot dot-river">澜沧江</span>
+          <span class="map-dot dot-stay">半山社区</span>
+        </div>
+        <div class="location-details reveal">
+          <p class="eyebrow">Quiet Coordinates</p>
+          <h2>保利雨林澜山，傣王宫旧址半山。</h2>
+          <p>版纳人家把热带雨林的湿润、澜沧江的蓝色流线和半山社区的安静生活感连接起来。具体抵达信息将在确认入住后通过微信沟通。</p>
+          <div class="location-list" data-location-points></div>
+        </div>
+      </section>
+
+      <section class="section river-preview inverted">
+        <div class="preview-copy reveal">
+          <p class="eyebrow">Around The Stay</p>
+          <h2>远离喧嚣，但保持抵达与沟通的便利。</h2>
+          <p>页面只展示对住客有帮助的外部信息：雨林环境、安静社区、小区接驳便利、入住前微信确认，不公开任何内部运营流程。</p>
+        </div>
+        <div class="mini-timeline reveal" data-location-timeline></div>
+      </section>
+    </main>
+
+    <button class="back-top" type="button" data-back-top aria-label="返回顶部">↑</button>
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+      <span>版纳人家 Banna Renjia</span>
+      <span>Jinghong / Lancang River / Half Mountain</span>
+    </footer>
+  </body>
+</html>

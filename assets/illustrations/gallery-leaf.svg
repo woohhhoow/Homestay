@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract botanical leaf gallery">
+  <rect width="720" height="560" fill="#102f28"/>
+  <path d="M88 560C116 300 258 120 520 30c-20 260-184 438-432 530Z" fill="#b8c9b3" opacity=".28"/>
+  <path d="M120 520C218 322 340 176 520 30" fill="none" stroke="#fbf8ef" stroke-width="3" opacity=".34"/>
+  <path d="M214 390c70-10 124-50 168-118M284 300c54-2 100-26 140-72M162 458c96-22 170-74 224-156" fill="none" stroke="#fbf8ef" stroke-width="2" opacity=".2"/>
+  <circle cx="540" cy="136" r="142" fill="#1f8ca6" opacity=".13"/>
+</svg>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>联系 | 版纳人家 Banna Renjia</title>
+    <meta name="description" content="联系版纳人家 Banna Renjia，微信 woohhhoow，电话 13309135639，请备注入住日期、人数、是否需要连住或同层。" />
+    <link rel="icon" type="image/svg+xml" href="../assets/icons/brand-mark.svg" />
+    <link rel="stylesheet" href="../css/base.css" />
+    <link rel="stylesheet" href="../css/layout.css" />
+    <link rel="stylesheet" href="../css/components.css" />
+    <link rel="stylesheet" href="../css/pages.css" />
+    <link rel="stylesheet" href="../css/animations.css" />
+    <link rel="stylesheet" href="../css/responsive.css" />
+    <script src="../js/data.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/interactions.js" defer></script>
+  </head>
+  <body data-page="contact" data-root="../">
+    <header class="site-header" data-header>
+      <a class="brand-lockup" href="../index.html" aria-label="返回版纳人家首页">
+        <span class="brand-mark">BR</span>
+        <span>
+          <strong>版纳人家</strong>
+          <small>Banna Renjia</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="../index.html" data-nav-item="home">首页</a>
+        <a href="../rooms/index.html" data-nav-item="rooms">房间</a>
+        <a href="../gallery/index.html" data-nav-item="gallery">图库</a>
+        <a href="../location/index.html" data-nav-item="location">位置</a>
+        <a href="index.html" data-nav-item="contact">联系</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-hero contact-hero" data-hero>
+        <div class="page-hero-copy reveal">
+          <p class="eyebrow">Contact / Inquiry</p>
+          <h1>微信确认房态、日期与入住需求。</h1>
+          <p>信息保持清晰、克制、可信。不公开内部运营细节，只提供住客真正需要的咨询入口。</p>
+        </div>
+      </section>
+
+      <section class="section contact-main">
+        <div class="inquiry-card reveal">
+          <p class="eyebrow">Inquiry Card</p>
+          <h2>添加微信并备注</h2>
+          <p class="prompt-line" data-inquiry-prompt></p>
+          <div class="contact-grid">
+            <div>
+              <span>微信</span>
+              <strong data-contact-wechat></strong>
+            </div>
+            <a href="tel:13309135639" data-contact-phone-link>
+              <span>电话</span>
+              <strong data-contact-phone></strong>
+            </a>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-primary" type="button" data-copy-wechat>复制微信号</button>
+            <a class="btn btn-soft" href="tel:13309135639" data-contact-phone-link>拨打电话</a>
+          </div>
+        </div>
+
+        <div class="faq-panel reveal">
+          <p class="eyebrow">Before You Ask</p>
+          <h2>入住咨询提示</h2>
+          <div class="faq-list" data-faq-list></div>
+        </div>
+      </section>
+    </main>
+
+    <button class="back-top" type="button" data-back-top aria-label="返回顶部">↑</button>
+    <div class="toast" data-toast role="status" aria-live="polite"></div>
+
+    <footer class="site-footer">
+      <span>版纳人家 Banna Renjia</span>
+      <span>WeChat: woohhhoow / Phone: 13309135639</span>
+    </footer>
+  </body>
+</html>
