@@ -130,7 +130,7 @@
 
   .rainforest-hero {
     width: min(100% - 24px, 1500px);
-    min-height: 78svh;
+    min-height: calc(100svh - 24px);
     margin-top: 12px;
     padding: 104px 18px 28px;
     border-radius: 24px;
@@ -274,11 +274,58 @@
     display: grid;
   }
 
-  .rainforest-hero .hero-stay-card {
-    grid-template-columns: 1fr;
-    width: 100%;
-    margin-top: 22px;
-    text-align: center;
+  body[data-page="home"] .site-header {
+    top: 14px;
+    width: calc(100% - 28px);
+    height: 52px;
+  }
+
+  .rainforest-hero {
+    width: calc(100% - 22px);
+    min-height: 0;
+    height: calc(100svh - 22px);
+    margin-top: 11px;
+    padding: 88px 18px 30px;
+    border-radius: 28px;
+  }
+
+  .rainforest-hero .hero-copy {
+    display: grid;
+    justify-items: center;
+    align-self: center;
+  }
+
+  .rainforest-hero .hero-copy .eyebrow {
+    max-width: 240px;
+    font-size: 0.7rem;
+    line-height: 1.35;
+  }
+
+  .rainforest-hero .hero-copy h1 {
+    margin-top: 14px;
+    font-size: clamp(3.35rem, 17vw, 4.85rem);
+    line-height: 0.94;
+  }
+
+  .rainforest-hero .hero-subtitle,
+  .rainforest-hero .hero-meta {
+    display: none;
+  }
+
+  .rainforest-hero .hero-actions {
+    width: auto;
+    margin-top: 26px;
+  }
+
+  .rainforest-hero .hero-actions .btn {
+    width: auto;
+    min-width: 168px;
+    min-height: 46px;
+    padding-inline: 22px;
+  }
+
+  .rainforest-hero .hero-actions .btn:not(:first-child) {
+    display: none;
   }
 
   .editor-actions {
