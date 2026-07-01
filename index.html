@@ -23,7 +23,7 @@
   <body data-page="home" data-root="">
     <header class="site-header" data-header>
       <a class="brand-lockup" href="index.html" aria-label="版纳人家首页">
-        <span class="brand-mark">BR</span>
+        <img class="brand-mark" src="assets/icons/brand-mark.svg" alt="" aria-hidden="true" />
         <span>
           <strong>版纳人家</strong>
           <small>Banna Renjia</small>
@@ -38,57 +38,44 @@
         <a href="rooms/index.html" data-nav-item="rooms">房间</a>
         <a href="gallery/index.html" data-nav-item="gallery">图库</a>
         <a href="location/index.html" data-nav-item="location">位置</a>
+        <a href="inquiry.html" data-nav-item="inquiry">入住咨询</a>
         <a href="contact/index.html" data-nav-item="contact">联系</a>
       </nav>
     </header>
 
     <main>
-      <section class="jungle-hero" id="top" data-hero>
-        <div class="hero-atmosphere" aria-hidden="true">
-          <span class="mist-layer mist-one"></span>
-          <span class="mist-layer mist-two"></span>
-          <span class="leaf leaf-left"></span>
-          <span class="leaf leaf-right"></span>
-          <span class="leaf leaf-low"></span>
-          <span class="sun-glow"></span>
-        </div>
-        <svg class="river-thread hero-river" viewBox="0 0 1200 720" aria-hidden="true">
-          <path d="M-40 570 C180 440 290 690 505 520 C710 360 770 265 960 315 C1080 345 1135 250 1240 195" />
-          <path d="M-80 635 C155 510 300 710 560 590 C815 472 820 355 1040 398 C1138 418 1195 335 1280 315" />
-        </svg>
-        <div class="mountain-haze" aria-hidden="true"></div>
-
+      <section class="jungle-hero rainforest-hero" id="top" data-hero>
         <div class="hero-copy reveal">
-          <p class="eyebrow">Tropical Rainforest Luxury / Jinghong Private Homestay</p>
+          <p class="eyebrow">Rainforest Hideaway / Jinghong Half Mountain</p>
           <h1><span>版纳人家</span><span>Banna Renjia</span></h1>
-          <p class="hero-subtitle">在景洪半山雨林里，留一段安静、舒展、带着江水蓝意的假期。</p>
+          <p class="hero-subtitle">深入半山雨林之境，在湿润晨雾、深绿光影和澜沧江的蓝色气息里慢慢停下来。</p>
           <div class="hero-meta">
-            <span>西双版纳景洪</span>
-            <span>保利雨林澜山</span>
-            <span>傣王宫旧址半山</span>
+            <span>西双版纳 · 景洪</span>
+            <span>半山雨林景观</span>
+            <span>设计师美学民宿</span>
           </div>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="rooms/index.html">查看房间</a>
-            <a class="btn btn-soft" href="contact/index.html">微信咨询</a>
+            <a class="btn btn-primary" href="inquiry.html">填写入住咨询</a>
+            <a class="btn btn-glass" href="rooms/index.html">探索房间</a>
+            <a class="btn btn-soft" href="location/index.html">了解半山位置</a>
           </div>
         </div>
-
-        <aside class="hero-stay-card reveal" aria-label="民宿定位">
-          <span class="card-index">BNR / 01</span>
-          <h2>Designer boutique stay, held quietly between mountain light and rainforest blue.</h2>
-          <p>公寓楼 / 小区内多房间民宿集合，适合情侣、家庭、朋友与连住度假。</p>
-        </aside>
       </section>
 
       <section class="section split-section" id="concept">
         <div class="section-heading reveal">
           <p class="eyebrow">Concept</p>
-          <h2>不是普通旅游模板，而是一处带有东方热带雨林气质的私人民宿官网。</h2>
+          <h2>把雨林的湿润、半山的安静和设计感，放进一次更从容的停留。</h2>
         </div>
         <div class="split-copy reveal">
           <p>
-            版纳人家把设计师审美、避世静谧、雨林景观和半山社区的便利放在一起。页面语言以深森林绿、澜沧江蓝、雾绿色和暖米白建立层次，强调慢生活、私密感和可被信任的入住引导。
+            版纳人家位于景洪保利雨林澜山、傣王宫旧址半山。这里不追求喧闹的度假口号，而是把深森林绿、澜沧江蓝、雾绿色和暖米白放在一起，让入住前的信息清楚，入住后的节奏放慢。
           </p>
+          <div class="overview-facts">
+            <div><span>Where</span><strong>西双版纳 · 景洪半山</strong></div>
+            <div><span>For whom</span><strong>情侣 / 家庭 / 朋友 / 连住</strong></div>
+            <div><span>Mood</span><strong>雨林景观 · 设计师美学</strong></div>
+          </div>
           <div class="text-chips">
             <span>Rainforest</span>
             <span>Lancang River Blue</span>
@@ -101,8 +88,8 @@
       <section class="section feature-section">
         <div class="section-heading reveal">
           <p class="eyebrow">Featured Rooms</p>
-          <h2>在雨林与半山之间，选择适合停留节奏的房间。</h2>
-          <p>不同房型适合情侣、家庭、朋友与连住需求，具体房态可通过微信确认。</p>
+          <h2>从两人短住到家庭连住，都有更安静的选择。</h2>
+          <p>不同房型适合情侣、家庭、朋友与连住需求。提交入住咨询后，我们会根据日期、人数和偏好确认合适房态。</p>
         </div>
         <div class="room-feature-grid" data-featured-rooms></div>
         <div class="section-action reveal">
@@ -111,16 +98,19 @@
       </section>
 
       <section class="section river-preview">
-        <div class="abstract-map reveal" aria-hidden="true">
-          <span class="map-ridge ridge-a"></span>
-          <span class="map-ridge ridge-b"></span>
-          <span class="map-pin pin-jinghong"></span>
-          <span class="map-pin pin-stay"></span>
-          <svg viewBox="0 0 760 420">
-            <path class="map-water" d="M18 304 C140 210 230 338 345 240 S535 120 720 198" />
-            <path class="map-route" d="M168 270 C260 240 335 252 420 214 S560 188 638 160" />
-          </svg>
-        </div>
+        <figure class="location-photo-card reveal" aria-label="半山雨林位置氛围">
+          <img
+            src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=72"
+            alt="半山雨林与晨雾氛围"
+            loading="lazy"
+            width="1200"
+            height="820"
+          />
+          <figcaption>
+            <span>Jinghong Half Mountain</span>
+            <strong>雨林、湿润空气与安静社区之间。</strong>
+          </figcaption>
+        </figure>
         <div class="preview-copy reveal">
           <p class="eyebrow">Rainforest & River</p>
           <h2>用山体轮廓、蓝色江水流线与雾气层，表达景洪的雨林坐标。</h2>
@@ -132,7 +122,7 @@
       <section class="section experience-preview">
         <div class="section-heading reveal">
           <p class="eyebrow">Stay Experience</p>
-          <h2>把住客关心的信息说清楚，把内部运营流程留在后台。</h2>
+          <h2>入住信息清楚一点，假期开始得就轻一点。</h2>
         </div>
         <div class="experience-grid" data-experience-preview></div>
       </section>
@@ -158,17 +148,25 @@
       </section>
 
       <section class="booking-band">
-        <div class="booking-card reveal">
-          <p class="eyebrow">Contact / Booking</p>
-          <h2>添加微信确认房态与入住需求。</h2>
-          <p>请备注：<strong data-inquiry-prompt></strong></p>
-          <div class="contact-lines">
-            <span>微信 <strong data-contact-wechat></strong></span>
-            <a href="tel:13309135639" data-contact-phone-link>电话 <strong data-contact-phone></strong></a>
+        <div class="booking-card inquiry-booking reveal">
+          <div class="booking-copy">
+            <p class="eyebrow">Contact / Booking</p>
+            <h2>准备好日期和人数后，从入住咨询开始。</h2>
+            <p>请备注：<strong data-inquiry-prompt></strong></p>
+            <div class="contact-lines">
+              <span>微信 <strong data-contact-wechat></strong></span>
+              <a href="tel:13309135639" data-contact-phone-link>电话 <strong data-contact-phone></strong></a>
+            </div>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="inquiry.html">填写入住咨询</a>
+              <a class="btn btn-soft" href="contact/index.html">查看咨询提示</a>
+            </div>
           </div>
-          <div class="hero-actions">
-            <button class="btn btn-primary" type="button" data-copy-wechat>复制微信号</button>
-            <a class="btn btn-soft" href="contact/index.html">查看咨询提示</a>
+          <div class="inquiry-entry-panel" aria-label="入住咨询入口">
+            <span class="card-index">Reservation Inquiry</span>
+            <h3>填写一次，方便我们快速确认房态。</h3>
+            <p>适合先说明入住日期、人数、连住或同层偏好。提交后信息会进入后台，不需要重复发送。</p>
+            <a class="btn btn-primary" href="inquiry.html">开始填写</a>
           </div>
         </div>
       </section>
@@ -189,7 +187,7 @@
 
     <footer class="site-footer">
       <span>版纳人家 Banna Renjia</span>
-      <span>Jinghong / Rainforest / Slow tropical light</span>
+      <span>Jinghong / Rainforest / Slow tropical light · <a href="admin.html">管理入口</a></span>
     </footer>
   </body>
 </html>

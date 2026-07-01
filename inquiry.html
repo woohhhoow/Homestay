@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>入住咨询 | 版纳人家 Banna Renjia</title>
+    <meta name="description" content="填写版纳人家入住咨询，提交日期、人数、联系方式与连住需求。" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/brand-mark.svg" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabase-config.js" defer></script>
+    <script src="./js/inquiry.js" defer></script>
+  </head>
+  <body data-page="inquiry" data-root="">
+    <header class="site-header scrolled" data-header>
+      <a class="brand-lockup" href="index.html" aria-label="返回版纳人家首页">
+        <img class="brand-mark" src="assets/icons/brand-mark.svg" alt="" aria-hidden="true" />
+        <span>
+          <strong>版纳人家</strong>
+          <small>Banna Renjia</small>
+        </span>
+      </a>
+      <nav class="site-nav simple-nav" aria-label="咨询页导航">
+        <a href="index.html">返回首页</a>
+        <a href="rooms/index.html">查看房间</a>
+        <a href="contact/index.html">联系方式</a>
+      </nav>
+    </header>
+
+    <main class="inquiry-main">
+      <section class="inquiry-studio">
+        <div class="inquiry-visual-panel reveal visible" aria-label="雨林入住咨询说明">
+          <span class="eyebrow">Reservation Inquiry</span>
+          <h1>把入住日期、人数和偏好先说清楚。</h1>
+          <p>版纳人家位于景洪半山雨林社区。提交咨询后，信息会进入后台，我们再通过微信或电话确认房态、连住、同层与抵达安排。</p>
+          <div class="inquiry-proof-grid">
+            <span><strong>1</strong>填写需求</span>
+            <span><strong>2</strong>确认房态</span>
+            <span><strong>3</strong>发送指引</span>
+          </div>
+        </div>
+
+        <form class="inquiry-form inquiry-page-form inquiry-studio-form reveal visible" data-inquiry-form>
+          <div class="form-heading">
+            <p class="eyebrow">Banna Renjia</p>
+            <h2>入住咨询</h2>
+            <p>姓名必填；微信或电话至少填写一个。</p>
+          </div>
+          <div class="form-grid">
+            <label>
+              <span>姓名 *</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              <span>微信</span>
+              <input type="text" name="wechat" autocomplete="off" />
+            </label>
+            <label>
+              <span>电话</span>
+              <input type="tel" name="phone" autocomplete="tel" inputmode="tel" />
+            </label>
+            <label>
+              <span>入住日期</span>
+              <input type="date" name="checkin_date" />
+            </label>
+            <label>
+              <span>退房日期</span>
+              <input type="date" name="checkout_date" />
+            </label>
+            <label>
+              <span>人数</span>
+              <input type="number" name="guests" min="1" step="1" inputmode="numeric" />
+            </label>
+          </div>
+          <label>
+            <span>备注</span>
+            <textarea name="message" rows="5" placeholder="例如：2 晚，2 人，希望安静，想了解连住或同层安排"></textarea>
+          </label>
+          <button class="btn btn-primary inquiry-submit" type="submit" data-inquiry-submit>提交咨询</button>
+          <p class="form-status" data-inquiry-status role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>版纳人家 Banna Renjia</span>
+      <span><a href="index.html">返回首页</a></span>
+    </footer>
+  </body>
+</html>

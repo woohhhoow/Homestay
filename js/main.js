@@ -41,7 +41,7 @@
 
     const loading = lazy ? ' loading="lazy"' : "";
     const path = normalizeMediaPath(src);
-    return `<picture class="media-image"><img src="${escapeHtml(path)}" alt="${escapeHtml(label)}"${loading} decoding="async" /></picture>`;
+    return `<picture class="media-image"><img src="${escapeHtml(path)}" alt="${escapeHtml(label)}"${loading} decoding="async" width="1200" height="820" sizes="(max-width: 760px) 92vw, (max-width: 1180px) 44vw, 380px" /></picture>`;
   }
 
   function iconMarkup(name) {
@@ -98,7 +98,10 @@
                 </dl>
                 <ul>${highlights}</ul>
                 <div class="tag-row">${tags}</div>
-                <button class="btn btn-primary" type="button" data-copy-wechat>复制微信咨询</button>
+                <div class="hero-actions">
+                  <a class="btn btn-primary" href="${root}inquiry.html">填写入住咨询</a>
+                  <button class="btn btn-soft" type="button" data-copy-wechat>复制微信</button>
+                </div>
               </div>
             </div>
           </template>

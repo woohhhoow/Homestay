@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract half mountain suite placeholder">
-  <rect width="720" height="560" fill="#0b2b22"/>
-  <path d="M0 428 145 260 246 356 382 150 528 356 640 230 720 330v230H0Z" fill="#1b5b47"/>
-  <path d="M0 480 160 340 296 420 426 250 560 420 720 300v260H0Z" fill="#071c16" opacity=".72"/>
-  <path d="M80 140c130 48 270 54 420-12" fill="none" stroke="#b8c9b3" stroke-width="2" stroke-dasharray="4 12" opacity=".35"/>
-  <path d="M114 198c174 70 320 64 492-18" fill="none" stroke="#77c7cf" stroke-width="3" stroke-linecap="round" opacity=".28"/>
-  <circle cx="206" cy="170" r="130" fill="#fbf8ef" opacity=".08"/>
-</svg>

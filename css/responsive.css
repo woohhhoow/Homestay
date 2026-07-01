@@ -11,8 +11,16 @@
   .split-section,
   .river-preview,
   .location-main,
-  .contact-main {
+  .contact-main,
+  .inquiry-booking,
+  .admin-shell,
+  .inquiry-page,
+  .inquiry-studio {
     grid-template-columns: 1fr;
+  }
+
+  .inquiry-context {
+    position: static;
   }
 
   .hero-stay-card,
@@ -48,6 +56,15 @@
 
   .site-header {
     padding: 0 18px;
+  }
+
+  body[data-page="home"] .site-header {
+    top: 18px;
+    right: auto;
+    left: 50%;
+    width: calc(100% - 36px);
+    height: 54px;
+    padding: 0 12px;
   }
 
   .nav-toggle {
@@ -87,10 +104,61 @@
     border-radius: var(--radius);
   }
 
+  .simple-nav {
+    position: static;
+    display: flex;
+    visibility: visible;
+    width: auto;
+    padding: 0;
+    opacity: 1;
+    transform: none;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .simple-nav a {
+    padding: 9px 10px;
+    font-size: 0.78rem;
+  }
+
   .jungle-hero,
   .page-hero {
     min-height: auto;
     padding: 116px 18px 58px;
+  }
+
+  .rainforest-hero {
+    width: min(100% - 24px, 1500px);
+    min-height: 78svh;
+    margin-top: 12px;
+    padding: 104px 18px 28px;
+    border-radius: 24px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(3rem, 14vw, 5.4rem);
+  }
+
+  .rainforest-hero {
+    align-items: center;
+  }
+
+  .rainforest-hero::before,
+  .rainforest-hero:hover::before {
+    transform: scale(1.03);
+  }
+
+  .inquiry-main {
+    padding: 92px 18px 44px;
+  }
+
+  .inquiry-studio {
+    min-height: auto;
+  }
+
+  .inquiry-visual-panel {
+    min-height: 430px;
   }
 
   .hero-subtitle {
@@ -111,6 +179,7 @@
   .experience-grid,
   .contact-lines,
   .contact-grid,
+  .form-grid,
   .stat-strip,
   .modal-content,
   .room-list .room-card:first-child {
@@ -142,8 +211,16 @@
 
   .booking-card,
   .inquiry-card,
-  .faq-panel {
+  .faq-panel,
+  .admin-login-card,
+  .admin-dashboard,
+  .admin-editor,
+  .inquiry-entry-panel {
     padding: 24px;
+  }
+
+  .editor-heading {
+    display: grid;
   }
 
   .lightbox {
@@ -169,14 +246,6 @@
     padding: 28px 18px;
   }
 
-  .leaf,
-  .mist-layer {
-    animation: none;
-  }
-
-  .leaf {
-    opacity: 0.14;
-  }
 }
 
 @media (max-width: 560px) {
@@ -205,6 +274,22 @@
     display: grid;
   }
 
+  .rainforest-hero .hero-stay-card {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin-top: 22px;
+    text-align: center;
+  }
+
+  .editor-actions {
+    display: grid;
+    width: 100%;
+  }
+
+  .status-select {
+    min-width: 0;
+  }
+
   .btn {
     width: 100%;
   }
@@ -231,5 +316,14 @@
 
   .prompt-line {
     font-size: 1.1rem;
+  }
+
+  .inquiry-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .inquiry-visual-panel {
+    min-height: 360px;
+    padding: 24px;
   }
 }

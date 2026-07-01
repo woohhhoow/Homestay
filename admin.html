@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>管理员后台 | 版纳人家 Banna Renjia</title>
+    <meta name="description" content="版纳人家咨询记录管理员后台。" />
+    <link rel="icon" type="image/svg+xml" href="assets/icons/brand-mark.svg" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="stylesheet" href="css/admin.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./js/supabase-config.js" defer></script>
+    <script src="./js/admin.js" defer></script>
+  </head>
+  <body data-page="admin" data-root="">
+    <header class="site-header scrolled" data-header>
+      <a class="brand-lockup" href="index.html" aria-label="返回版纳人家首页">
+        <img class="brand-mark" src="assets/icons/brand-mark.svg" alt="" aria-hidden="true" />
+        <span>
+          <strong>版纳人家</strong>
+          <small>Banna Renjia</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-label="打开导航" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="index.html" data-nav-item="home">首页</a>
+        <a href="rooms/index.html" data-nav-item="rooms">房间</a>
+        <a href="gallery/index.html" data-nav-item="gallery">图库</a>
+        <a href="location/index.html" data-nav-item="location">位置</a>
+        <a href="inquiry.html" data-nav-item="inquiry">入住咨询</a>
+        <a href="contact/index.html" data-nav-item="contact">联系</a>
+      </nav>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-login-view" data-admin-login-view>
+        <div class="admin-login-copy">
+          <p class="eyebrow">Banna Renjia Admin</p>
+          <h1>版纳人家管理后台</h1>
+          <p>仅供房源管理者查看与处理入住咨询。登录、读取和数据修改均通过 Supabase Auth + RLS 控制。</p>
+        </div>
+        <form class="admin-login-card" data-admin-login>
+          <p class="eyebrow">Secure Sign In</p>
+          <h2>管理员登录</h2>
+          <label>
+            <span>账号</span>
+            <input type="text" name="account" autocomplete="username" inputmode="numeric" placeholder="请输入账号" required />
+          </label>
+          <label>
+            <span>密码</span>
+            <input type="password" name="password" autocomplete="current-password" placeholder="请输入密码" required />
+          </label>
+          <button class="btn btn-primary" type="submit" data-admin-login-button>登录后台</button>
+          <p class="form-status" data-admin-login-status role="status" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="admin-dashboard" data-admin-dashboard hidden>
+        <div class="dashboard-toolbar">
+          <div>
+            <p class="eyebrow">Inquiry Desk</p>
+            <h1>住客咨询记录</h1>
+          </div>
+          <div class="dashboard-meta">
+            <span class="record-count" data-admin-count>0 条记录</span>
+            <button class="btn btn-primary" type="button" data-admin-new>新增记录</button>
+            <button class="btn btn-soft" type="button" data-admin-refresh>刷新</button>
+            <button class="btn btn-soft" type="button" data-admin-logout>退出登录</button>
+          </div>
+        </div>
+
+        <p class="admin-load-state" data-admin-list-status>正在加载咨询记录...</p>
+        <div class="inquiry-records" data-admin-records></div>
+
+        <dialog class="admin-modal" data-admin-modal>
+          <form class="admin-editor" data-admin-editor>
+            <div class="editor-heading">
+              <div>
+                <p class="eyebrow" data-editor-kicker>New Inquiry</p>
+                <h2 data-editor-title>新增咨询记录</h2>
+              </div>
+              <button class="modal-close-button" type="button" data-editor-cancel aria-label="关闭编辑窗口">×</button>
+            </div>
+            <input type="hidden" name="id" />
+            <div class="form-grid">
+              <label>
+                <span>姓名 *</span>
+                <input type="text" name="name" required />
+              </label>
+              <label>
+                <span>微信</span>
+                <input type="text" name="wechat" />
+              </label>
+              <label>
+                <span>电话</span>
+                <input type="tel" name="phone" inputmode="tel" />
+              </label>
+              <label>
+                <span>入住日期</span>
+                <input type="date" name="checkin_date" />
+              </label>
+              <label>
+                <span>退房日期</span>
+                <input type="date" name="checkout_date" />
+              </label>
+              <label>
+                <span>人数</span>
+                <input type="number" name="guests" min="1" step="1" inputmode="numeric" />
+              </label>
+              <label>
+                <span>状态</span>
+                <select name="status">
+                  <option value="new">new</option>
+                  <option value="contacted">contacted</option>
+                  <option value="confirmed">confirmed</option>
+                  <option value="ignored">ignored</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              <span>备注</span>
+              <textarea name="message" rows="4"></textarea>
+            </label>
+            <div class="editor-actions">
+              <button class="btn btn-primary" type="submit" data-editor-save>保存</button>
+              <button class="btn btn-soft" type="button" data-editor-cancel>取消</button>
+            </div>
+            <p class="form-status" data-editor-status role="status" aria-live="polite"></p>
+          </form>
+        </dialog>
+      </section>
+    </main>
+  </body>
+</html>

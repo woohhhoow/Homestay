@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 560" role="img" aria-label="Abstract same-floor terrace placeholder">
-  <rect width="720" height="560" fill="#102f28"/>
-  <rect x="95" y="120" width="530" height="320" rx="4" fill="#f5efe1" opacity=".12"/>
-  <path d="M138 172h444M138 250h444M138 328h444M220 120v320M360 120v320M500 120v320" stroke="#fbf8ef" opacity=".18"/>
-  <path d="M-20 462C120 332 255 522 406 394S598 260 760 314" fill="none" stroke="#77c7cf" stroke-width="9" stroke-linecap="round" opacity=".55"/>
-  <path d="M120 560c50-155 150-274 300-356-4 140-106 270-300 356Z" fill="#6f8666" opacity=".32"/>
-  <path d="M560 560c-68-130-60-246 26-348 56 128 44 242-26 348Z" fill="#b8c9b3" opacity=".24"/>
-</svg>

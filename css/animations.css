@@ -37,39 +37,6 @@
   animation-delay: 480ms;
 }
 
-.mist-one {
-  animation: mistDrift 18s ease-in-out infinite alternate;
-}
-
-.mist-two {
-  animation: mistDrift 24s ease-in-out infinite alternate-reverse;
-}
-
-.leaf-left,
-.leaf-right,
-.leaf-low {
-  animation: leafFloat 9s ease-in-out infinite alternate;
-}
-
-.leaf-right {
-  animation-duration: 12s;
-}
-
-.leaf-low {
-  animation-duration: 14s;
-}
-
-.river-thread path,
-.map-water,
-.water-line {
-  animation: riverFlow 9s linear infinite;
-}
-
-.map-pin::before,
-.map-dot::before {
-  animation: pinBreathe 2.8s ease-in-out infinite;
-}
-
 @keyframes titleRise {
   to {
     opacity: 1;
@@ -77,43 +44,14 @@
   }
 }
 
-@keyframes mistDrift {
+@keyframes statusFade {
   from {
-    transform: translateX(-4%);
+    opacity: 0;
+    transform: translateY(6px);
   }
   to {
-    transform: translateX(7%);
-  }
-}
-
-@keyframes leafFloat {
-  from {
-    margin-top: -10px;
-  }
-  to {
-    margin-top: 10px;
-  }
-}
-
-@keyframes riverFlow {
-  to {
-    stroke-dashoffset: -120;
-  }
-}
-
-@keyframes pinBreathe {
-  0%,
-  100% {
-    box-shadow: 0 0 0 8px rgba(127, 211, 233, 0.1);
-  }
-  50% {
-    box-shadow: 0 0 0 16px rgba(127, 211, 233, 0.02);
-  }
-}
-
-@keyframes flowBorder {
-  to {
-    filter: hue-rotate(20deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
